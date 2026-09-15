@@ -22,11 +22,10 @@ jobs:
         run: |
           rm -rf HDrezka/iOS
           cp -r HDrezka/tvOS HDrezka/iOS
+          rm -rf HDrezka/iOS/Resources/Info.plist
           # Patch pbxproj: add appletvos to SUPPORTED_PLATFORMS
           sed -i '' 's/SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";/SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx appletvos appletvsimulator";/' HDrezka.xcodeproj/project.pbxproj
-          # Add TVOS_DEPLOYMENT_TARGET
           sed -i '' 's/IPHONEOS_DEPLOYMENT_TARGET = 18.0;/IPHONEOS_DEPLOYMENT_TARGET = 18.0; TVOS_DEPLOYMENT_TARGET = 17.0;/' HDrezka.xcodeproj/project.pbxproj
-          # Change UIDeviceFamily in pbxproj to include tvOS (3)
           sed -i '' 's/TARGETED_DEVICE_FAMILY = 2;/TARGETED_DEVICE_FAMILY = "1,2,3";/' HDrezka.xcodeproj/project.pbxproj
 
       - name: Build for tvOS
