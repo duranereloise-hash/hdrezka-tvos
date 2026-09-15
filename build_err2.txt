@@ -1,0 +1,2 @@
+Build tvOS IPA	Build for tvOS	2026-09-15T23:39:02.9935200Z error: Multiple commands produce '/Users/runner/Library/Developer/Xcode/DerivedData/HDrezka-ejpgdjremzhqyzaknchtnoyztktq/Build/Intermediates.noindex/ArchiveIntermediates/HDrezka/IntermediateBuildFilesPath/UninstalledProducts/appletvos/HDrezka.bundle'
+Build tvOS IPA	Build for tvOS	2026-09-15T23:39:03.5286480Z ##[error]Process completed with exit code 65.

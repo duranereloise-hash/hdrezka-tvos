@@ -1,0 +1,413 @@
+Build tvOS IPA	Set up job	﻿2026-09-15T23:24:44.9717900Z Current runner version: '2.337.0'
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9734770Z ##[group]Runner Image Provisioner
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9735320Z Hosted Compute Agent
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9735680Z Version: 20260828.587
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9736090Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9736610Z Build Date: 2026-08-28T16:44:25Z
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9737080Z Worker ID: {43b896fd-8983-42e5-aec0-4269763bb1e4}
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9737540Z Azure Region: westus
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9737900Z ##[endgroup]
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9738840Z ##[group]Operating System
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9739230Z macOS
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9739540Z 26.6.2
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9739860Z 25G83
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9740240Z ##[endgroup]
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9740620Z ##[group]Runner Image
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9740990Z Image: macos-26-arm64
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9741350Z Version: 20260907.0351.1
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9742090Z Included Software: https://github.com/actions/runner-images/blob/macos-26-arm64/20260907.0351/images/macos/macos-26-arm64-Readme.md
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9743210Z Image Release: https://github.com/actions/runner-images/releases/tag/macos-26-arm64%2F20260907.0351
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9743870Z ##[endgroup]
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9744680Z ##[group]GITHUB_TOKEN Permissions
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9745820Z Contents: read
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9746200Z Metadata: read
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9746590Z Packages: read
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9747020Z ##[endgroup]
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9748400Z Secret source: Actions
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9749090Z Cache mode: write
+Build tvOS IPA	Set up job	2026-09-15T23:24:44.9749570Z Prepare workflow directory
+Build tvOS IPA	Set up job	2026-09-15T23:24:45.0153440Z Prepare all required actions
+Build tvOS IPA	Set up job	2026-09-15T23:24:45.0211400Z Getting action download info
+Build tvOS IPA	Set up job	2026-09-15T23:24:45.3721190Z Download action repository 'maxim-lobanov/setup-xcode@v1' (SHA:ed7a3b1fda3918c0306d1b724322adc0b8cc0a90)
+Build tvOS IPA	Set up job	2026-09-15T23:24:45.8755980Z Download action repository 'actions/checkout@v6' (SHA:d23441a48e516b6c34aea4fa41551a30e30af803)
+Build tvOS IPA	Set up job	2026-09-15T23:24:45.9550110Z Download action repository 'actions/upload-artifact@v7' (SHA:043fb46d1a93c77aae656e7c1c64a875d1fc6a0a)
+Build tvOS IPA	Set up job	2026-09-15T23:24:46.1068860Z Complete job name: Build tvOS IPA
+Build tvOS IPA	Run maxim-lobanov/setup-xcode@v1	﻿2026-09-15T23:24:46.1450040Z ##[group]Run maxim-lobanov/setup-xcode@v1
+Build tvOS IPA	Run maxim-lobanov/setup-xcode@v1	2026-09-15T23:24:46.1450650Z with:
+Build tvOS IPA	Run maxim-lobanov/setup-xcode@v1	2026-09-15T23:24:46.1450970Z   xcode-version: 26.2
+Build tvOS IPA	Run maxim-lobanov/setup-xcode@v1	2026-09-15T23:24:46.1451390Z env:
+Build tvOS IPA	Run maxim-lobanov/setup-xcode@v1	2026-09-15T23:24:46.1451700Z   scheme: HDrezkaTV
+Build tvOS IPA	Run maxim-lobanov/setup-xcode@v1	2026-09-15T23:24:46.1452030Z   archive_path: archive
+Build tvOS IPA	Run maxim-lobanov/setup-xcode@v1	2026-09-15T23:24:46.1452370Z ##[endgroup]
+Build tvOS IPA	Run maxim-lobanov/setup-xcode@v1	2026-09-15T23:24:46.4989380Z Switching Xcode to version '26.2'...
+Build tvOS IPA	Run maxim-lobanov/setup-xcode@v1	2026-09-15T23:24:46.5783550Z Xcode is set to 26.2.0 (17C52)
+Build tvOS IPA	Checkout	﻿2026-09-15T23:24:46.6043040Z ##[group]Run actions/checkout@v6
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.6043590Z with:
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.6043940Z   submodules: recursive
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.6044380Z   repository: duranereloise-hash/hdrezka-tvos
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.6047610Z   token: ***
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.6048070Z   ssh-strict: true
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.6048450Z   ssh-user: git
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.6048810Z   persist-credentials: true
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.6049190Z   clean: true
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.6049580Z   sparse-checkout-cone-mode: true
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.6049990Z   fetch-depth: 1
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.6050330Z   fetch-tags: false
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.6050690Z   show-progress: true
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.6051060Z   lfs: false
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.6051430Z   set-safe-directory: true
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.6051850Z   allow-unsafe-pr-checkout: false
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.6052260Z env:
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.6052600Z   scheme: HDrezkaTV
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.6052960Z   archive_path: archive
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.6053380Z   MD_APPLE_SDK_ROOT: /Applications/Xcode_26.2.app
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.6053900Z ##[endgroup]
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7149220Z Syncing repository: duranereloise-hash/hdrezka-tvos
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7151260Z ##[group]Getting Git version info
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7151870Z Working directory is '/Users/runner/work/hdrezka-tvos/hdrezka-tvos'
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7152720Z [command]/opt/homebrew/bin/git version
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7635690Z git version 2.55.0
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7649490Z ##[endgroup]
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7655400Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/eee6219c-e256-43da-b566-40b71341edd7/.gitconfig'
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7662480Z Temporarily overriding HOME='/Users/runner/work/_temp/eee6219c-e256-43da-b566-40b71341edd7' before making global git config changes
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7663600Z Adding repository directory to the temporary git global config as a safe directory
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7665950Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/hdrezka-tvos/hdrezka-tvos
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7789910Z Deleting the contents of '/Users/runner/work/hdrezka-tvos/hdrezka-tvos'
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7792410Z ##[group]Determining repository object format
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7793560Z ##[endgroup]
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7794170Z ##[group]Initializing the repository
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7797050Z [command]/opt/homebrew/bin/git init /Users/runner/work/hdrezka-tvos/hdrezka-tvos
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7975200Z hint: Using 'master' as the name for the initial branch. This default branch name
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7976400Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7977230Z hint: to use in all of your new repositories, which will suppress this warning,
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7978030Z hint: call:
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7978390Z hint:
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7978860Z hint: 	git config --global init.defaultBranch <name>
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7979430Z hint:
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7979920Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7980650Z hint: 'development'. The just-created branch can be renamed via this command:
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7981340Z hint:
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7981740Z hint: 	git branch -m <name>
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7982210Z hint:
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7982830Z hint: Disable this message with "git config set advice.defaultBranchName false"
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7983720Z Initialized empty Git repository in /Users/runner/work/hdrezka-tvos/hdrezka-tvos/.git/
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.7985400Z [command]/opt/homebrew/bin/git remote add origin https://github.com/duranereloise-hash/hdrezka-tvos
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.8057020Z ##[endgroup]
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.8057860Z ##[group]Disabling automatic garbage collection
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.8059370Z [command]/opt/homebrew/bin/git config --local gc.auto 0
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.8130600Z ##[endgroup]
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.8131450Z ##[group]Setting up auth
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.8134370Z Removing SSH command configuration
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.8136830Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.8236040Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.9393320Z Removing HTTP extra header
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.9394980Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Build tvOS IPA	Checkout	2026-09-15T23:24:46.9398190Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Build tvOS IPA	Checkout	2026-09-15T23:24:47.0126740Z Removing includeIf entries pointing to credentials config files
+Build tvOS IPA	Checkout	2026-09-15T23:24:47.0128030Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+Build tvOS IPA	Checkout	2026-09-15T23:24:47.0192950Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Build tvOS IPA	Checkout	2026-09-15T23:24:47.1813300Z [command]/opt/homebrew/bin/git config --file /Users/runner/work/_temp/git-credentials-3ecf7609-e962-4423-9781-380bbd1ed0c3.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+Build tvOS IPA	Checkout	2026-09-15T23:24:47.1832380Z [command]/opt/homebrew/bin/git config --local includeIf.gitdir:/Users/runner/work/hdrezka-tvos/hdrezka-tvos/.git.path /Users/runner/work/_temp/git-credentials-3ecf7609-e962-4423-9781-380bbd1ed0c3.config
+Build tvOS IPA	Checkout	2026-09-15T23:24:47.1835670Z [command]/opt/homebrew/bin/git config --local includeIf.gitdir:/Users/runner/work/hdrezka-tvos/hdrezka-tvos/.git/worktrees/*.path /Users/runner/work/_temp/git-credentials-3ecf7609-e962-4423-9781-380bbd1ed0c3.config
+Build tvOS IPA	Checkout	2026-09-15T23:24:47.1954050Z [command]/opt/homebrew/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-3ecf7609-e962-4423-9781-380bbd1ed0c3.config
+Build tvOS IPA	Checkout	2026-09-15T23:24:47.1978920Z [command]/opt/homebrew/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-3ecf7609-e962-4423-9781-380bbd1ed0c3.config
+Build tvOS IPA	Checkout	2026-09-15T23:24:47.2016010Z ##[endgroup]
+Build tvOS IPA	Checkout	2026-09-15T23:24:47.2016820Z ##[group]Fetching the repository
+Build tvOS IPA	Checkout	2026-09-15T23:24:47.2021910Z [command]/opt/homebrew/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +670d62a96beac619440efa3e16d861ec32824401:refs/remotes/origin/main
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.3121980Z From https://github.com/duranereloise-hash/hdrezka-tvos
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.3123910Z  * [new ref]         670d62a96beac619440efa3e16d861ec32824401 -> origin/main
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.3130430Z [command]/opt/homebrew/bin/git branch --list --remote origin/main
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.3234870Z   origin/main
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.3245150Z [command]/opt/homebrew/bin/git rev-parse refs/remotes/origin/main
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.3326740Z 670d62a96beac619440efa3e16d861ec32824401
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.3331700Z ##[endgroup]
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.3333160Z ##[group]Determining the checkout info
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.3334450Z ##[endgroup]
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.3343860Z [command]/opt/homebrew/bin/git sparse-checkout disable
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.3482700Z [command]/opt/homebrew/bin/git config --local --unset-all extensions.worktreeConfig
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.3589910Z ##[group]Checking out the ref
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.3591390Z [command]/opt/homebrew/bin/git checkout --progress --force -B main refs/remotes/origin/main
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.4714690Z Switched to a new branch 'main'
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.4718450Z branch 'main' set up to track 'origin/main'.
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.4725080Z ##[endgroup]
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.4727290Z ##[group]Setting up auth for fetching submodules
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.4730450Z [command]/opt/homebrew/bin/git config --file /Users/runner/work/_temp/git-credentials-3ecf7609-e962-4423-9781-380bbd1ed0c3.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.4822040Z [command]/opt/homebrew/bin/git config --global include.path /Users/runner/work/_temp/git-credentials-3ecf7609-e962-4423-9781-380bbd1ed0c3.config
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.4919800Z [command]/opt/homebrew/bin/git config --global --unset-all url.https://github.com/.insteadOf
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.4992890Z [command]/opt/homebrew/bin/git config --global --add url.https://github.com/.insteadOf git@github.com:
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.5078240Z [command]/opt/homebrew/bin/git config --global --add url.https://github.com/.insteadOf org-309539288@github.com:
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.5210530Z ##[endgroup]
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.5212960Z ##[group]Fetching submodules
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.5217200Z [command]/opt/homebrew/bin/git submodule sync --recursive
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.6013340Z [command]/opt/homebrew/bin/git -c protocol.version=2 submodule update --init --force --depth=1 --recursive
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.7261940Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local gc.auto 0
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.8768370Z ##[endgroup]
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.8872360Z ##[group]Persisting credentials for submodules
+Build tvOS IPA	Checkout	2026-09-15T23:24:48.8974190Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'url\.https\:\/\/github\.com\/\.insteadOf' && git config --local --unset-all 'url.https://github.com/.insteadOf' || :"
+Build tvOS IPA	Checkout	2026-09-15T23:24:49.0283130Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Build tvOS IPA	Checkout	2026-09-15T23:24:49.1296050Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --add 'url.https://github.com/.insteadOf' 'git@github.com:'
+Build tvOS IPA	Checkout	2026-09-15T23:24:49.2520680Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --add 'url.https://github.com/.insteadOf' 'org-309539288@github.com:'
+Build tvOS IPA	Checkout	2026-09-15T23:24:49.3346890Z ##[endgroup]
+Build tvOS IPA	Checkout	2026-09-15T23:24:49.3433320Z [command]/opt/homebrew/bin/git log -1 --format=%H
+Build tvOS IPA	Checkout	2026-09-15T23:24:49.3500960Z 670d62a96beac619440efa3e16d861ec32824401
+Build tvOS IPA	Archive	﻿2026-09-15T23:24:49.3598440Z ##[group]Run xcodebuild archive \
+Build tvOS IPA	Archive	2026-09-15T23:24:49.3598770Z ^[[36;1mxcodebuild archive \^[[0m
+Build tvOS IPA	Archive	2026-09-15T23:24:49.3598980Z ^[[36;1m  -archivePath "$archive_path" \^[[0m
+Build tvOS IPA	Archive	2026-09-15T23:24:49.3599210Z ^[[36;1m  -scheme "$scheme" \^[[0m
+Build tvOS IPA	Archive	2026-09-15T23:24:49.3599410Z ^[[36;1m  -project HDrezka.xcodeproj \^[[0m
+Build tvOS IPA	Archive	2026-09-15T23:24:49.3599630Z ^[[36;1m  -sdk appletvos -arch arm64 \^[[0m
+Build tvOS IPA	Archive	2026-09-15T23:24:49.3599850Z ^[[36;1m  -configuration Release \^[[0m
+Build tvOS IPA	Archive	2026-09-15T23:24:49.3600080Z ^[[36;1m  CODE_SIGNING_ALLOWED=NO^[[0m
+Build tvOS IPA	Archive	2026-09-15T23:24:49.3643870Z shell: /bin/bash -e {0}
+Build tvOS IPA	Archive	2026-09-15T23:24:49.3644100Z env:
+Build tvOS IPA	Archive	2026-09-15T23:24:49.3644250Z   scheme: HDrezkaTV
+Build tvOS IPA	Archive	2026-09-15T23:24:49.3644410Z   archive_path: archive
+Build tvOS IPA	Archive	2026-09-15T23:24:49.3644610Z   MD_APPLE_SDK_ROOT: /Applications/Xcode_26.2.app
+Build tvOS IPA	Archive	2026-09-15T23:24:49.3644840Z ##[endgroup]
+Build tvOS IPA	Archive	2026-09-15T23:24:52.5537990Z Command line invocation:
+Build tvOS IPA	Archive	2026-09-15T23:24:52.5640900Z     /Applications/Xcode_26.2.app/Contents/Developer/usr/bin/xcodebuild archive -archivePath archive -scheme HDrezkaTV -project HDrezka.xcodeproj -sdk appletvos -arch arm64 -configuration Release CODE_SIGNING_ALLOWED=NO
+Build tvOS IPA	Archive	2026-09-15T23:24:52.5740450Z 
+Build tvOS IPA	Archive	2026-09-15T23:24:52.5778500Z Build settings from command line:
+Build tvOS IPA	Archive	2026-09-15T23:24:52.5790430Z     ARCHS = arm64
+Build tvOS IPA	Archive	2026-09-15T23:24:52.5803660Z     CODE_SIGNING_ALLOWED = NO
+Build tvOS IPA	Archive	2026-09-15T23:24:52.5813030Z     SDKROOT = appletvos26.2
+Build tvOS IPA	Archive	2026-09-15T23:24:52.5913780Z 
+Build tvOS IPA	Archive	2026-09-15T23:24:56.4236080Z Resolve Package Graph
+Build tvOS IPA	Archive	2026-09-15T23:25:04.3538360Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:04.3579620Z Fetching from https://github.com/SvenTiigi/YouTubePlayerKit.git
+Build tvOS IPA	Archive	2026-09-15T23:25:05.6344370Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:05.6349510Z Fetching from https://github.com/tevelee/SwiftUI-Flow.git
+Build tvOS IPA	Archive	2026-09-15T23:25:05.6349890Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:32.0977200Z Fetching from https://github.com/scinfu/SwiftSoup.git
+Build tvOS IPA	Archive	2026-09-15T23:25:32.1079620Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:32.1180590Z Fetching from https://github.com/nicklockwood/SwiftFormat.git
+Build tvOS IPA	Archive	2026-09-15T23:25:32.1282210Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:32.1383450Z Fetching from https://github.com/apple/swift-collections.git
+Build tvOS IPA	Archive	2026-09-15T23:25:32.1484380Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:32.1585310Z Fetching from https://github.com/apple/swift-algorithms.git
+Build tvOS IPA	Archive	2026-09-15T23:25:32.1685950Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:32.1786890Z Fetching from https://github.com/sparkle-project/Sparkle.git
+Build tvOS IPA	Archive	2026-09-15T23:25:32.1887510Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:32.1988340Z Fetching from https://github.com/EmergeTools/Pow.git
+Build tvOS IPA	Archive	2026-09-15T23:25:32.2090080Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:32.2215800Z Fetching from https://github.com/nicklockwood/LRUCache.git
+Build tvOS IPA	Archive	2026-09-15T23:25:32.2318140Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:32.2420660Z Fetching from https://github.com/onevcat/Kingfisher.git
+Build tvOS IPA	Archive	2026-09-15T23:25:32.2536040Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:32.2643760Z Fetching from https://github.com/firebase/firebase-ios-sdk.git
+Build tvOS IPA	Archive	2026-09-15T23:25:35.4920190Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:35.4928170Z Fetching from https://github.com/hmlongco/Factory.git
+Build tvOS IPA	Archive	2026-09-15T23:25:35.4941520Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:35.4942210Z Fetching from https://github.com/sindresorhus/Defaults.git
+Build tvOS IPA	Archive	2026-09-15T23:25:35.4944930Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:35.4945170Z Fetching from https://github.com/Alamofire/Alamofire.git
+Build tvOS IPA	Archive	2026-09-15T23:25:37.5589210Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:41.3510300Z Fetching from https://github.com/apple/swift-numerics.git
+Build tvOS IPA	Archive	2026-09-15T23:25:42.3709120Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:45.9346640Z Fetching from https://github.com/swiftlang/swift-syntax
+Build tvOS IPA	Archive	2026-09-15T23:25:49.9791180Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:52.8606760Z Fetching from https://github.com/google/interop-ios-for-google-sdks.git
+Build tvOS IPA	Archive	2026-09-15T23:25:53.8183070Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:53.8292700Z Fetching from https://github.com/google/app-check.git
+Build tvOS IPA	Archive	2026-09-15T23:25:54.5359890Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:54.5404610Z Fetching from https://github.com/firebase/leveldb.git
+Build tvOS IPA	Archive	2026-09-15T23:25:54.7639030Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:54.7643650Z Fetching from https://github.com/google/grpc-binary.git
+Build tvOS IPA	Archive	2026-09-15T23:25:54.7644690Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:54.7644900Z Fetching from https://github.com/google/abseil-cpp-binary.git
+Build tvOS IPA	Archive	2026-09-15T23:25:55.0999650Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:55.1004670Z Fetching from https://github.com/firebase/nanopb.git
+Build tvOS IPA	Archive	2026-09-15T23:25:55.7949570Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:55.7984310Z Fetching from https://github.com/google/gtm-session-fetcher.git
+Build tvOS IPA	Archive	2026-09-15T23:25:56.1950590Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:56.1983450Z Fetching from https://github.com/google/GoogleUtilities.git
+Build tvOS IPA	Archive	2026-09-15T23:25:56.6495160Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:56.6529930Z Fetching from https://github.com/google/GoogleDataTransport.git
+Build tvOS IPA	Archive	2026-09-15T23:25:57.1079220Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:57.1081540Z Fetching from https://github.com/google/GoogleAppMeasurement.git
+Build tvOS IPA	Archive	2026-09-15T23:25:57.2713770Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:57.2814820Z Fetching from https://github.com/google/promises.git
+Build tvOS IPA	Archive	2026-09-15T23:25:57.9187840Z 
+Build tvOS IPA	Archive	2026-09-15T23:25:59.5881860Z Fetching from https://github.com/googleads/google-ads-on-device-conversion-ios-sdk
+Build tvOS IPA	Archive	2026-09-15T23:26:00.2175620Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:04.8054120Z Creating working copy of package ‘nanopb’
+Build tvOS IPA	Archive	2026-09-15T23:26:04.8597120Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:04.8698460Z Checking out 2.30910.1 of package ‘nanopb’
+Build tvOS IPA	Archive	2026-09-15T23:26:04.9607990Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:04.9900770Z Creating working copy of package ‘swift-collections’
+Build tvOS IPA	Archive	2026-09-15T23:26:05.0435670Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:05.0438230Z Checking out 1.6.0 of package ‘swift-collections’
+Build tvOS IPA	Archive	2026-09-15T23:26:05.3459000Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:05.3785600Z Creating working copy of package ‘Factory’
+Build tvOS IPA	Archive	2026-09-15T23:26:05.4394940Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:05.4396670Z Checking out 3.3.2 of package ‘Factory’
+Build tvOS IPA	Archive	2026-09-15T23:26:05.7391490Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:05.7670330Z Creating working copy of package ‘swift-numerics’
+Build tvOS IPA	Archive	2026-09-15T23:26:05.8042940Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:05.8046150Z Checking out 1.1.1 of package ‘swift-numerics’
+Build tvOS IPA	Archive	2026-09-15T23:26:05.8459600Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:05.8744560Z Creating working copy of package ‘abseil-cpp-binary’
+Build tvOS IPA	Archive	2026-09-15T23:26:05.9125220Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:05.9126800Z Checking out 1.2024072200.0 of package ‘abseil-cpp-binary’
+Build tvOS IPA	Archive	2026-09-15T23:26:05.9414390Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:05.9696450Z Creating working copy of package ‘Kingfisher’
+Build tvOS IPA	Archive	2026-09-15T23:26:06.0296530Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:06.0297870Z Checking out 8.12.0 of package ‘Kingfisher’
+Build tvOS IPA	Archive	2026-09-15T23:26:06.1878130Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:06.2238210Z Creating working copy of package ‘Defaults’
+Build tvOS IPA	Archive	2026-09-15T23:26:06.2731050Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:06.2731800Z Checking out 9.0.9 of package ‘Defaults’
+Build tvOS IPA	Archive	2026-09-15T23:26:06.3140750Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:06.3426550Z Creating working copy of package ‘interop-ios-for-google-sdks’
+Build tvOS IPA	Archive	2026-09-15T23:26:06.3793180Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:06.3794790Z Checking out 101.0.0 of package ‘interop-ios-for-google-sdks’
+Build tvOS IPA	Archive	2026-09-15T23:26:06.4109520Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:06.4460700Z Creating working copy of package ‘firebase-ios-sdk’
+Build tvOS IPA	Archive	2026-09-15T23:26:06.6722420Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:06.6724810Z Checking out 12.19.2 of package ‘firebase-ios-sdk’
+Build tvOS IPA	Archive	2026-09-15T23:26:08.0510020Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:08.0830010Z Creating working copy of package ‘SwiftUI-Flow’
+Build tvOS IPA	Archive	2026-09-15T23:26:08.1381940Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:08.1383360Z Checking out 3.5.1 of package ‘SwiftUI-Flow’
+Build tvOS IPA	Archive	2026-09-15T23:26:08.2281860Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:08.2591420Z Creating working copy of package ‘YouTubePlayerKit’
+Build tvOS IPA	Archive	2026-09-15T23:26:08.2947780Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:08.2949340Z Checking out 2.0.5 of package ‘YouTubePlayerKit’
+Build tvOS IPA	Archive	2026-09-15T23:26:08.3517440Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:08.3811450Z Creating working copy of package ‘swift-syntax’
+Build tvOS IPA	Archive	2026-09-15T23:26:08.4777080Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:08.4778580Z Checking out 604.0.0 of package ‘swift-syntax’
+Build tvOS IPA	Archive	2026-09-15T23:26:08.7139820Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:08.7464560Z Creating working copy of package ‘gtm-session-fetcher’
+Build tvOS IPA	Archive	2026-09-15T23:26:08.8047910Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:08.8049480Z Checking out 5.3.1 of package ‘gtm-session-fetcher’
+Build tvOS IPA	Archive	2026-09-15T23:26:08.8475350Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:08.8730810Z Creating working copy of package ‘SwiftSoup’
+Build tvOS IPA	Archive	2026-09-15T23:26:08.9189560Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:08.9215200Z Checking out 2.13.9 of package ‘SwiftSoup’
+Build tvOS IPA	Archive	2026-09-15T23:26:08.9987560Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:09.0264260Z Creating working copy of package ‘GoogleDataTransport’
+Build tvOS IPA	Archive	2026-09-15T23:26:09.0713420Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:09.0714310Z Checking out 10.1.1 of package ‘GoogleDataTransport’
+Build tvOS IPA	Archive	2026-09-15T23:26:09.1673470Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:09.1918770Z Creating working copy of package ‘Pow’
+Build tvOS IPA	Archive	2026-09-15T23:26:09.2233420Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:09.2234490Z Checking out 1.0.6 of package ‘Pow’
+Build tvOS IPA	Archive	2026-09-15T23:26:09.3227800Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:09.3581720Z Creating working copy of package ‘LRUCache’
+Build tvOS IPA	Archive	2026-09-15T23:26:09.3927980Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:09.3930820Z Checking out 1.3.0 of package ‘LRUCache’
+Build tvOS IPA	Archive	2026-09-15T23:26:09.4158750Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:09.4463420Z Creating working copy of package ‘SwiftFormat’
+Build tvOS IPA	Archive	2026-09-15T23:26:09.5050640Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:09.5051930Z Checking out 0.63.0 of package ‘SwiftFormat’
+Build tvOS IPA	Archive	2026-09-15T23:26:09.7522730Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:09.7790970Z Creating working copy of package ‘leveldb’
+Build tvOS IPA	Archive	2026-09-15T23:26:09.8113440Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:09.8114870Z Checking out 1.22.5 of package ‘leveldb’
+Build tvOS IPA	Archive	2026-09-15T23:26:09.8688510Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:09.8952970Z Creating working copy of package ‘Alamofire’
+Build tvOS IPA	Archive	2026-09-15T23:26:09.9457790Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:09.9458890Z Checking out 5.12.2 of package ‘Alamofire’
+Build tvOS IPA	Archive	2026-09-15T23:26:10.1519480Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:10.1761300Z Creating working copy of package ‘Sparkle’
+Build tvOS IPA	Archive	2026-09-15T23:26:10.2300230Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:10.2301810Z Checking out 2.10.0 of package ‘Sparkle’
+Build tvOS IPA	Archive	2026-09-15T23:26:10.5994680Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:10.6240960Z Creating working copy of package ‘promises’
+Build tvOS IPA	Archive	2026-09-15T23:26:10.6550860Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:10.6552340Z Checking out 2.4.1 of package ‘promises’
+Build tvOS IPA	Archive	2026-09-15T23:26:10.7017990Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:10.7251680Z Creating working copy of package ‘app-check’
+Build tvOS IPA	Archive	2026-09-15T23:26:10.7632970Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:10.7634320Z Checking out 11.3.2 of package ‘app-check’
+Build tvOS IPA	Archive	2026-09-15T23:26:10.8178500Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:10.8419690Z Creating working copy of package ‘swift-algorithms’
+Build tvOS IPA	Archive	2026-09-15T23:26:10.8800740Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:10.8801880Z Checking out 1.2.1 of package ‘swift-algorithms’
+Build tvOS IPA	Archive	2026-09-15T23:26:10.9254000Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:10.9483800Z Creating working copy of package ‘GoogleUtilities’
+Build tvOS IPA	Archive	2026-09-15T23:26:10.9839410Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:10.9871540Z Checking out 8.1.3 of package ‘GoogleUtilities’
+Build tvOS IPA	Archive	2026-09-15T23:26:11.0405070Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:11.0651000Z Creating working copy of package ‘grpc-binary’
+Build tvOS IPA	Archive	2026-09-15T23:26:11.0969150Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:11.0969990Z Checking out 1.69.1 of package ‘grpc-binary’
+Build tvOS IPA	Archive	2026-09-15T23:26:11.1166780Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:11.1411270Z Creating working copy of package ‘google-ads-on-device-conversion-ios-sdk’
+Build tvOS IPA	Archive	2026-09-15T23:26:11.1713690Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:11.1743940Z Checking out 3.7.0 of package ‘google-ads-on-device-conversion-ios-sdk’
+Build tvOS IPA	Archive	2026-09-15T23:26:11.1894820Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:11.2165420Z Creating working copy of package ‘GoogleAppMeasurement’
+Build tvOS IPA	Archive	2026-09-15T23:26:11.2530600Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:11.2533950Z Checking out 12.19.2 of package ‘GoogleAppMeasurement’
+Build tvOS IPA	Archive	2026-09-15T23:26:11.2739400Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3214200Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3215100Z Resolved source packages:
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3216000Z   InteropForGoogle: https://github.com/google/interop-ios-for-google-sdks.git @ 101.0.0
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3216700Z   GoogleAdsOnDeviceConversion: https://github.com/googleads/google-ads-on-device-conversion-ios-sdk @ 3.7.0
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3218360Z   swift-numerics: https://github.com/apple/swift-numerics.git @ 1.1.1
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3218910Z   SwiftSoup: https://github.com/scinfu/SwiftSoup.git @ 2.13.9
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3219610Z   GoogleAppMeasurement: https://github.com/google/GoogleAppMeasurement.git @ 12.19.2
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3220230Z   SwiftFormat: https://github.com/nicklockwood/SwiftFormat.git @ 0.63.0
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3220800Z   Alamofire: https://github.com/Alamofire/Alamofire.git @ 5.12.2
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3221250Z   Defaults: https://github.com/sindresorhus/Defaults.git @ 9.0.9
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3235680Z   AppCheck: https://github.com/google/app-check.git @ 11.3.2
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3236220Z   LRUCache: https://github.com/nicklockwood/LRUCache.git @ 1.3.0
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3236640Z   Factory: https://github.com/hmlongco/Factory.git @ 3.3.2
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3237160Z   Flow: https://github.com/tevelee/SwiftUI-Flow.git @ 3.5.1
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3237710Z   Promises: https://github.com/google/promises.git @ 2.4.1
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3238350Z   Firebase: https://github.com/firebase/firebase-ios-sdk.git @ 12.19.2
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3246000Z   GoogleUtilities: https://github.com/google/GoogleUtilities.git @ 8.1.3
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3246530Z   nanopb: https://github.com/firebase/nanopb.git @ 2.30910.1
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3247000Z   LicensesList: /Users/runner/work/hdrezka-tvos/hdrezka-tvos/LicensesList
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3247540Z   Kingfisher: https://github.com/onevcat/Kingfisher.git @ 8.12.0
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3248080Z   Pow: https://github.com/EmergeTools/Pow.git @ 1.0.6
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3248560Z   YouTubePlayerKit: https://github.com/SvenTiigi/YouTubePlayerKit.git @ 2.0.5
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3249180Z   GoogleDataTransport: https://github.com/google/GoogleDataTransport.git @ 10.1.1
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3249680Z   GTMSessionFetcher: https://github.com/google/gtm-session-fetcher.git @ 5.3.1
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3250220Z   swift-collections: https://github.com/apple/swift-collections.git @ 1.6.0
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3250680Z   leveldb: https://github.com/firebase/leveldb.git @ 1.22.5
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3251250Z   swift-syntax: https://github.com/swiftlang/swift-syntax @ 604.0.0
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3251770Z   abseil: https://github.com/google/abseil-cpp-binary.git @ 1.2024072200.0
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3252290Z   gRPC: https://github.com/google/grpc-binary.git @ 1.69.1
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3252750Z   Sparkle: https://github.com/sparkle-project/Sparkle.git @ 2.10.0
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3253180Z   swift-algorithms: https://github.com/apple/swift-algorithms.git @ 1.2.1
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3254050Z 
+Build tvOS IPA	Archive	2026-09-15T23:26:43.3272200Z 2026-09-15 23:26:43.326 xcodebuild[1970:9099] Writing error result bundle to /var/folders/36/tjdph2t965j8snz9_vkdnw0r0000gn/T/ResultBundle_2026-15-09_23-26-0043.xcresult
+Build tvOS IPA	Archive	2026-09-15T23:26:43.4138030Z xcodebuild: error: The project named "HDrezka" does not contain a scheme named "HDrezkaTV". The "-list" option can be used to find the names of the schemes in the project.
+Build tvOS IPA	Archive	2026-09-15T23:26:43.4563780Z ##[error]Process completed with exit code 65.
+Build tvOS IPA	Post Checkout	﻿2026-09-15T23:26:43.4847170Z Post job cleanup.
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:43.9484030Z [command]/opt/homebrew/bin/git version
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:43.9823000Z git version 2.55.0
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:43.9845760Z Copying '/Users/runner/.gitconfig' to '/Users/runner/work/_temp/b673ce57-9b4c-4d30-9543-0ac2d95281eb/.gitconfig'
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:43.9853320Z Temporarily overriding HOME='/Users/runner/work/_temp/b673ce57-9b4c-4d30-9543-0ac2d95281eb' before making global git config changes
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:43.9854420Z Adding repository directory to the temporary git global config as a safe directory
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:43.9857900Z [command]/opt/homebrew/bin/git config --global --add safe.directory /Users/runner/work/hdrezka-tvos/hdrezka-tvos
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.0118770Z Removing SSH command configuration
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.0119790Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp core\.sshCommand
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.0135550Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.1404510Z Removing HTTP extra header
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.1409240Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.1490790Z [command]/opt/homebrew/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.2560930Z Removing includeIf entries pointing to credentials config files
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.2594150Z [command]/opt/homebrew/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.2624240Z includeif.gitdir:/Users/runner/work/hdrezka-tvos/hdrezka-tvos/.git.path
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.2629690Z includeif.gitdir:/Users/runner/work/hdrezka-tvos/hdrezka-tvos/.git/worktrees/*.path
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.2630430Z includeif.gitdir:/github/workspace/.git.path
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.2630940Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.2632650Z [command]/opt/homebrew/bin/git config --local --get-all includeif.gitdir:/Users/runner/work/hdrezka-tvos/hdrezka-tvos/.git.path
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.2659140Z /Users/runner/work/_temp/git-credentials-3ecf7609-e962-4423-9781-380bbd1ed0c3.config
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.2667590Z [command]/opt/homebrew/bin/git config --local --unset includeif.gitdir:/Users/runner/work/hdrezka-tvos/hdrezka-tvos/.git.path /Users/runner/work/_temp/git-credentials-3ecf7609-e962-4423-9781-380bbd1ed0c3.config
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.2752820Z [command]/opt/homebrew/bin/git config --local --get-all includeif.gitdir:/Users/runner/work/hdrezka-tvos/hdrezka-tvos/.git/worktrees/*.path
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.2822000Z /Users/runner/work/_temp/git-credentials-3ecf7609-e962-4423-9781-380bbd1ed0c3.config
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.2844430Z [command]/opt/homebrew/bin/git config --local --unset includeif.gitdir:/Users/runner/work/hdrezka-tvos/hdrezka-tvos/.git/worktrees/*.path /Users/runner/work/_temp/git-credentials-3ecf7609-e962-4423-9781-380bbd1ed0c3.config
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.2910420Z [command]/opt/homebrew/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.2988850Z /github/runner_temp/git-credentials-3ecf7609-e962-4423-9781-380bbd1ed0c3.config
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.2995640Z [command]/opt/homebrew/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-3ecf7609-e962-4423-9781-380bbd1ed0c3.config
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.3078420Z [command]/opt/homebrew/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.3148300Z /github/runner_temp/git-credentials-3ecf7609-e962-4423-9781-380bbd1ed0c3.config
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.3153200Z [command]/opt/homebrew/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-3ecf7609-e962-4423-9781-380bbd1ed0c3.config
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.3281720Z [command]/opt/homebrew/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Build tvOS IPA	Post Checkout	2026-09-15T23:26:44.4288880Z Removing credentials config '/Users/runner/work/_temp/git-credentials-3ecf7609-e962-4423-9781-380bbd1ed0c3.config'
+Build tvOS IPA	Complete job	﻿2026-09-15T23:26:44.4450120Z Cleaning up orphan processes

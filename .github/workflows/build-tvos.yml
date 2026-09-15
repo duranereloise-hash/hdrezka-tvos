@@ -18,6 +18,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Replace iOS sources with tvOS sources
+        run: |
+          rm -rf HDrezka/iOS
+          cp -r HDrezka/tvOS HDrezka/iOS
+          rm -rf HDrezka/tvOS
+          rm -f HDrezka/iOS/Info.plist
+
       - name: Build for tvOS
         run: |
           xcodebuild -project HDrezka.xcodeproj \
@@ -30,15 +37,21 @@ jobs:
             TARGETED_DEVICE_FAMILY=3 \
             SDKROOT=appletvos \
             PRODUCT_BUNDLE_IDENTIFIER=io.silentsea.hdrezka \
-            GENERATE_INFOPLIST_FILE=NO \
-            INFOPLIST_FILE=HDrezka/tvOS/Info.plist \
-            PRODUCT_NAME=HDrezka \
+            PRODUCT_NAME=HDrezkaTV \
+            GENERATE_INFOPLIST_FILE=YES \
+            INFOPLIST_KEY_UIDeviceFamily=3 \
+            INFOPLIST_KEY_UISupportedInterfaceOrientations="UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight" \
+            INFOPLIST_KEY_LSRequiresIPhoneOS=NO \
+            INFOPLIST_KEY_UIApplicationSceneManifest_Generation=NO \
+            INFOPLIST_KEY_UILaunchScreen_Generation=NO \
+            INFOPLIST_KEY_CFBundleDisplayName=HDrezka \
+            INFOPLIST_KEY_LSApplicationCategoryType="public.app-category.video" \
             clean archive -archivePath build/HDrezkaTV
 
       - name: Create IPA
         run: |
           mkdir Payload
-          cp -R build/HDrezkaTV.xcarchive/Products/Applications/HDrezka.app Payload/
+          cp -R build/HDrezkaTV.xcarchive/Products/Applications/HDrezkaTV.app Payload/
           zip -r HDrezkaTV.ipa Payload -x "._*" -x ".DS_Store" -x "__MACOSX"
           rm -rf Payload
 
