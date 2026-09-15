@@ -18,28 +18,33 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Swap iOS with tvOS sources
+      - name: Swap tvOS sources and patch project
         run: |
           rm -rf HDrezka/iOS
           cp -r HDrezka/tvOS HDrezka/iOS
+          # Patch pbxproj: add appletvos to SUPPORTED_PLATFORMS
+          sed -i '' 's/SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";/SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx appletvos appletvsimulator";/' HDrezka.xcodeproj/project.pbxproj
+          # Add TVOS_DEPLOYMENT_TARGET
+          sed -i '' 's/IPHONEOS_DEPLOYMENT_TARGET = 18.0;/IPHONEOS_DEPLOYMENT_TARGET = 18.0; TVOS_DEPLOYMENT_TARGET = 17.0;/' HDrezka.xcodeproj/project.pbxproj
+          # Change UIDeviceFamily in pbxproj to include tvOS (3)
+          sed -i '' 's/TARGETED_DEVICE_FAMILY = 2;/TARGETED_DEVICE_FAMILY = "1,2,3";/' HDrezka.xcodeproj/project.pbxproj
 
       - name: Build for tvOS
         run: |
-          xcodebuild -project HDrezka.xcodeproj \
+          xcodebuild clean archive \
+            -project HDrezka.xcodeproj \
             -scheme HDrezka \
             -configuration Release \
-            -destination 'generic/platform=tvOS' \
+            -sdk appletvos \
             -arch arm64 \
             CODE_SIGNING_ALLOWED=NO \
-            GENERATE_INFOPLIST_FILE=YES \
-            PRODUCT_BUNDLE_IDENTIFIER=io.silentsea.hdrezkatv \
-            PRODUCT_NAME=HDrezkaTV \
-            archive -archivePath build/HDrezkaTV
+            PRODUCT_BUNDLE_IDENTIFIER=io.silentsea.hdrezka \
+            archive -archivePath build/HDrezka
 
       - name: Create IPA
         run: |
           mkdir Payload
-          cp -R build/HDrezkaTV.xcarchive/Products/Applications/HDrezkaTV.app Payload/
+          cp -R build/HDrezka.xcarchive/Products/Applications/HDrezka.app Payload/
           zip -r HDrezkaTV.ipa Payload -x "._*" -x ".DS_Store" -x "__MACOSX"
           rm -rf Payload
 
