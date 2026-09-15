@@ -9,9 +9,6 @@ jobs:
   build-tvos:
     name: Build tvOS IPA
     runs-on: macos-latest
-    env:
-      scheme: HDrezkaTV
-      archive_path: archive
 
     steps:
       - uses: maxim-lobanov/setup-xcode@v1
@@ -20,24 +17,27 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v6
-        with:
-          submodules: recursive
 
-      - name: Archive
+      - name: Build for tvOS
         run: |
-          xcodebuild archive \
-            -archivePath "$archive_path" \
-            -scheme "$scheme" \
-            -project HDrezka.xcodeproj \
-            -sdk appletvos -arch arm64 \
+          xcodebuild -project HDrezka.xcodeproj \
+            -scheme HDrezka \
             -configuration Release \
-            CODE_SIGNING_ALLOWED=NO
+            -sdk appletvos \
+            -arch arm64 \
+            CODE_SIGNING_ALLOWED=NO \
+            SUPPORTED_PLATFORMS=appletvos \
+            TARGETED_DEVICE_FAMILY=3 \
+            SDKROOT=appletvos \
+            INFOPLIST_FILE=HDrezka/tvOS/Info.plist \
+            PRODUCT_BUNDLE_IDENTIFIER=io.silentsea.hdrezka \
+            clean archive -archivePath build/HDrezkaTV
 
       - name: Create IPA
         run: |
           mkdir Payload
-          cp -R "$archive_path.xcarchive/Products/Applications/HDrezka.app" Payload/
-          zip -r "$scheme.ipa" Payload -x "._*" -x ".DS_Store" -x "__MACOSX"
+          cp -R build/HDrezkaTV.xcarchive/Products/Applications/HDrezka.app Payload/
+          zip -r HDrezkaTV.ipa Payload -x "._*" -x ".DS_Store" -x "__MACOSX"
           rm -rf Payload
 
       - name: Upload IPA
