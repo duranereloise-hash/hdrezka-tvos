@@ -911,17 +911,15 @@ struct DetailsView: View {
                             endPoint: .bottom)
                         }
                 }
+                #if os(iOS)
                 .viewModifier { view in
-                    #if os(iOS)
                     if #available(iOS 26, *) {
                         view.backgroundExtensionEffect()
                     } else {
                         view
                     }
-                    #else
-                    view
-                    #endif
                 }
+                #endif
             }
 
             OrientationView { orientation in

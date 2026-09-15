@@ -130,9 +130,11 @@ struct HomeView: View {
         .background(.background)
         .sheet(isPresented: $viewModel.isSeriesUpdatesPresented) {
             SeriesUpdatesSheetView(movieDestination: $movieDestination)
+                #if os(iOS)
                 .presentationSizing(.fitted)
                 .presentationDetents([.large])
                 .presentationDragIndicator(.visible)
+                #endif
         }
         .navigationDestination(item: $movieDestination) {
             DetailsView(movie: $0)

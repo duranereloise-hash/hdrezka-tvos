@@ -37,7 +37,7 @@ struct ContentView: View {
                 }
             }
         }
-        #if !os(tvOS)
+        #if os(iOS)
         .tabViewStyle(.tabBarOnly)
         #endif
         .onAppear {

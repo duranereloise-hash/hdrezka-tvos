@@ -47,15 +47,14 @@ struct PlayerView: View {
     #if !os(tvOS)
     private let nowPlayingInfoCenter = MPNowPlayingInfoCenter.default()
     private let remoteCommandCenter = MPRemoteCommandCenter.shared()
-#endif
 
-    @State private var player: AVPlayer?
-    @State private var playerLayer: AVPlayerLayer?
-#if !os(tvOS)
     @State private var pipController: AVPictureInPictureController?
     @State private var isPictureInPictureActive: Bool = false
     @State private var isPictureInPicturePossible: Bool = false
-#endif
+    #endif
+
+    @State private var player: AVPlayer?
+    @State private var playerLayer: AVPlayerLayer?
     @State private var videoGravity: AVLayerVideoGravity = .resizeAspect
     @State private var loadedTimeRanges: [CMTimeRange] = []
     @State private var timeObserverToken: Any?
@@ -153,17 +152,24 @@ struct PlayerView: View {
                                 withAnimation(.easeInOut) {
                                     self.pipController = pipController
                                 }
-#endif
+                                #endif
                             }
                         }
                         .gesture(
                             SpatialTapGesture(count: 2)
                                 .onEnded { event in
+                                    #if !os(tvOS)
                                     guard player.status == .readyToPlay,
                                           !isPictureInPictureActive
                                     else {
                                         return
                                     }
+#else
+                                    guard player.status == .readyToPlay
+                                    else {
+                                        return
+                                    }
+#endif
 
                                     if event.location.x / geometry.size.width > 0.5 {
                                         player.seek(to: CMTime(seconds: min(currentTime + 10.0, duration), preferredTimescale: CMTimeScale(NSEC_PER_SEC)), toleranceBefore: .zero, toleranceAfter: .zero) { complete in
@@ -186,11 +192,19 @@ struct PlayerView: View {
                                 .exclusively(before:
                                     TapGesture(count: 1)
                                         .onEnded {
+                                            #if !os(tvOS)
                                             if !isMaskShow {
                                                 setMask(!isPictureInPictureActive)
                                             } else {
                                                 setMask((isLoading || !isPlaying) && !isPictureInPictureActive)
                                             }
+                                            #else
+                                            if !isMaskShow {
+                                                setMask(true)
+                                            } else {
+                                                setMask((isLoading || !isPlaying))
+                                            }
+                                            #endif
                                         }
                                         .exclusively(before:
                                             DragGesture(minimumDistance: 0)
@@ -221,9 +235,13 @@ struct PlayerView: View {
                                     Button {
                                         resetTimer()
 
+                                        #if !os(tvOS)
                                         if !isPictureInPictureActive {
                                             player.isMuted.toggle()
                                         }
+#else
+                                        player.isMuted.toggle()
+#endif
                                     } label: {
                                         Image(systemName: isMuted ? "speaker.slash.fill" : "speaker.wave.3.fill", variableValue: Double(volume))
                                             .font(.title2)
@@ -264,6 +282,7 @@ struct PlayerView: View {
                                     Button {
                                         resetTimer()
 
+                                        #if !os(tvOS)
                                         if !isPictureInPictureActive {
                                             if isPlaying {
                                                 player.pause()
@@ -271,6 +290,13 @@ struct PlayerView: View {
                                                 player.playImmediately(atRate: rate)
                                             }
                                         }
+#else
+                                        if isPlaying {
+                                            player.pause()
+                                        } else {
+                                            player.playImmediately(atRate: rate)
+                                        }
+#endif
                                     } label: {
                                         Image(systemName: isPlaying ? "pause.fill" : "play.fill")
                                             .font(.largeTitle)
@@ -342,7 +368,7 @@ struct PlayerView: View {
                                             .disabled(isPictureInPictureActive || !isPictureInPicturePossible)
                                             .shadow(color: .black.opacity(0.5), radius: 4, y: 2)
                                         }
-#endif
+                                        #endif
 
                                         if !subtitlesOptions.isEmpty {
                                             Menu {
@@ -425,7 +451,7 @@ struct PlayerView: View {
                                                 self.rate = rate
                                                 #if !os(tvOS)
                                                 nowPlayingInfoCenter.nowPlayingInfo?[MPNowPlayingInfoPropertyPlaybackRate] = rate
-#endif
+                                                #endif
 
                                                 if isPlaying {
                                                     player.playImmediately(atRate: rate)
@@ -553,14 +579,18 @@ struct PlayerView: View {
             .shadow(color: .black.opacity(0.5), radius: 4, y: 2)
             .padding(.top, 36)
             .padding(.leading, 36)
+            #if !os(tvOS)
             .opacity(isMaskShow || isPictureInPictureActive || isLoading ? 1 : 0)
+#else
+            .opacity(isMaskShow || isLoading ? 1 : 0)
+#endif
         }
         .background(Color.black)
         .preferredColorScheme(.dark)
         #if !os(tvOS)
         .statusBarHidden(!isMaskShow && !isPictureInPictureActive)
         .persistentSystemOverlays(.hidden)
-#endif
+        #endif
         .onAppear {
             initialVolume = volume
 
@@ -580,9 +610,15 @@ struct PlayerView: View {
             case .active:
                 break
             default:
+                #if !os(tvOS)
                 if !isPictureInPictureActive, isPlaying {
                     player.pause()
                 }
+#else
+                if isPlaying {
+                    player.pause()
+                }
+#endif
             }
         }
         .onChange(of: spatialAudio) {
@@ -605,7 +641,7 @@ struct PlayerView: View {
         if let player, let currentItem = player.currentItem {
             #if !os(tvOS)
             nowPlayingInfoCenter.nowPlayingInfo = [:]
-#endif
+            #endif
 
             if let thumbnails = movie.thumbnails {
                 getMovieThumbnailsUseCase(path: thumbnails)
@@ -623,16 +659,10 @@ struct PlayerView: View {
 
                 #if !os(tvOS)
                 nowPlayingInfoCenter.nowPlayingInfo?[MPNowPlayingInfoPropertyElapsedPlaybackTime] = currentTime
-#endif
-                #if !os(tvOS)
                 nowPlayingInfoCenter.nowPlayingInfo?[MPNowPlayingInfoPropertyPlaybackRate] = rate
-#endif
-                #if !os(tvOS)
                 nowPlayingInfoCenter.nowPlayingInfo?[MPNowPlayingInfoPropertyCurrentPlaybackDate] = currentItem.currentDate()
-#endif
-                #if !os(tvOS)
                 nowPlayingInfoCenter.nowPlayingInfo?[MPNowPlayingInfoPropertyDefaultPlaybackRate] = player.defaultRate
-#endif
+                #endif
 
                 if let position = playerPositions.first(where: { position in
                     position.id == voiceActing.voiceId &&
@@ -696,28 +726,24 @@ struct PlayerView: View {
                             }
                         }
 
+                        #if !os(tvOS)
                         if let seasons, let season, let episode {
-                            #if !os(tvOS)
                             remoteCommandCenter.previousTrackCommand.addTarget { _ in
                                 prevTrack(seasons, season, episode)
 
                                 return .success
                             }
-#endif
 
-                            #if !os(tvOS)
                             remoteCommandCenter.nextTrackCommand.addTarget { _ in
                                 nextTrack(seasons, season, episode)
 
                                 return .success
                             }
-#endif
 
-                            #if !os(tvOS)
                             remoteCommandCenter.previousTrackCommand.isEnabled = seasons.element(before: season) != nil || season.episodes.element(before: episode) != nil
                             remoteCommandCenter.nextTrackCommand.isEnabled = seasons.element(after: season) != nil || season.episodes.element(after: episode) != nil
-#endif
                         }
+                        #endif
 
                         updateNextTimer()
 
@@ -760,32 +786,36 @@ struct PlayerView: View {
 
                             #if !os(tvOS)
                             nowPlayingInfoCenter.playbackState = .playing
-#endif
+                            #endif
                         case .paused:
                             isPlaying = false
                             isLoading = false
 
                             #if !os(tvOS)
                             nowPlayingInfoCenter.playbackState = .paused
-#endif
+                            #endif
                         case .waitingToPlayAtSpecifiedRate:
                             isPlaying = false
                             isLoading = true
 
                             #if !os(tvOS)
                             nowPlayingInfoCenter.playbackState = .paused
-#endif
+                            #endif
                         default:
                             isPlaying = false
                             isLoading = true
 
                             #if !os(tvOS)
                             nowPlayingInfoCenter.playbackState = .paused
-#endif
+                            #endif
                         }
                     }
 
+                    #if !os(tvOS)
                     setMask(!isPictureInPictureActive)
+#else
+                    setMask(true)
+#endif
 
                     updateNextTimer()
                 }
@@ -798,7 +828,11 @@ struct PlayerView: View {
                         self.isMuted = isMuted
                     }
 
+                    #if !os(tvOS)
                     setMask(!isPictureInPictureActive)
+#else
+                    setMask(true)
+#endif
 
                     updateNextTimer()
                 }
@@ -815,7 +849,11 @@ struct PlayerView: View {
                         player.isMuted.toggle()
                     }
 
+                    #if !os(tvOS)
                     setMask(!isPictureInPictureActive)
+#else
+                    setMask(true)
+#endif
 
                     updateNextTimer()
                 }
@@ -843,7 +881,7 @@ struct PlayerView: View {
 
                     #if !os(tvOS)
                     nowPlayingInfoCenter.nowPlayingInfo?[MPMediaItemPropertyPlaybackDuration] = duration.seconds
-#endif
+                    #endif
 
                     updateNextTimer()
                 }
@@ -874,11 +912,12 @@ struct PlayerView: View {
                 .receive(on: DispatchQueue.main)
                 .sink { _ in
                     player.seek(to: CMTime(seconds: 0, preferredTimescale: CMTimeScale(NSEC_PER_SEC)), toleranceBefore: .zero, toleranceAfter: .zero) { _ in
+                        #if !os(tvOS)
                         if isPictureInPictureActive, let pipController {
-#if !os(tvOS)
                             pipController.stopPictureInPicture()
-#endif
-                        } else if timer != -1, let seasons, let season, let episode {
+                        } else
+                        #endif
+                        if timer != -1, let seasons, let season, let episode {
                             nextTrack(seasons, season, episode)
                         }
 
@@ -910,7 +949,9 @@ struct PlayerView: View {
             if let season, let episode {
                 nowPlayingInfoCenter.nowPlayingInfo?[MPMediaItemPropertyArtist] = "Season \(season.name) Episode \(episode.name)"
             }
+            #endif
 
+            #if !os(tvOS)
             if let url = URL(string: poster) {
                 KingfisherManager.shared.retrieveImage(with: url) { result in
                     if case let .success(value) = result {
@@ -918,7 +959,7 @@ struct PlayerView: View {
                     }
                 }
             }
-#endif
+            #endif
 
             #if !os(tvOS)
             remoteCommandCenter.playCommand.addTarget { _ in
@@ -926,17 +967,13 @@ struct PlayerView: View {
 
                 return .success
             }
-#endif
 
-            #if !os(tvOS)
             remoteCommandCenter.pauseCommand.addTarget { _ in
                 player.pause()
 
                 return .success
             }
-#endif
 
-            #if !os(tvOS)
             remoteCommandCenter.togglePlayPauseCommand.addTarget { _ in
                 if isPlaying {
                     player.pause()
@@ -946,9 +983,7 @@ struct PlayerView: View {
 
                 return .success
             }
-#endif
 
-            #if !os(tvOS)
             remoteCommandCenter.changePlaybackPositionCommand.addTarget { event in
                 guard let effectiveEvent = event as? MPChangePlaybackPositionCommandEvent else { return .commandFailed }
 
@@ -960,9 +995,7 @@ struct PlayerView: View {
 
                 return .success
             }
-#endif
 
-            #if !os(tvOS)
             remoteCommandCenter.changePlaybackRateCommand.addTarget { event in
                 guard let effectiveEvent = event as? MPChangePlaybackRateCommandEvent else { return .commandFailed }
 
@@ -975,9 +1008,7 @@ struct PlayerView: View {
 
                 return .success
             }
-#endif
 
-            #if !os(tvOS)
             remoteCommandCenter.pauseCommand.isEnabled = true
             remoteCommandCenter.playCommand.isEnabled = true
             remoteCommandCenter.togglePlayPauseCommand.isEnabled = true
@@ -1000,7 +1031,7 @@ struct PlayerView: View {
             remoteCommandCenter.seekBackwardCommand.isEnabled = false
             remoteCommandCenter.bookmarkCommand.isEnabled = false
             remoteCommandCenter.disableLanguageOptionCommand.isEnabled = false
-#endif
+            #endif
 
             player.volume = volume
             player.isMuted = isMuted
@@ -1023,7 +1054,7 @@ struct PlayerView: View {
         #if !os(tvOS)
         nowPlayingInfoCenter.playbackState = .stopped
         nowPlayingInfoCenter.nowPlayingInfo = nil
-#endif
+        #endif
 
         #if !os(tvOS)
         remoteCommandCenter.playCommand.removeTarget(nil)
@@ -1034,7 +1065,7 @@ struct PlayerView: View {
         remoteCommandCenter.stopCommand.removeTarget(nil)
         remoteCommandCenter.previousTrackCommand.removeTarget(nil)
         remoteCommandCenter.nextTrackCommand.removeTarget(nil)
-#endif
+        #endif
 
         timerWork?.cancel()
         delayHide?.cancel()
@@ -1048,7 +1079,7 @@ struct PlayerView: View {
             player = nil
             #if !os(tvOS)
             pipController = nil
-#endif
+            #endif
             error = nil
             nextTimer = nil
             subtitlesOptions = []
@@ -1137,7 +1168,11 @@ struct PlayerView: View {
     }
 
     private func updateNextTimer() {
+#if !os(tvOS)
         if (duration - currentTime) / 60 > 0, (duration - currentTime) / 60 <= 1, let seasons, let season, let episode, seasons.element(after: season) != nil || season.episodes.element(after: episode) != nil, timer != -1, !isPictureInPictureActive {
+#else
+        if (duration - currentTime) / 60 > 0, (duration - currentTime) / 60 <= 1, let seasons, let season, let episode, seasons.element(after: season) != nil || season.episodes.element(after: episode) != nil, timer != -1 {
+#endif
             withAnimation(.easeInOut) {
                 nextTimer = min((duration - currentTime) / 60, 1.0)
             }

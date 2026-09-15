@@ -7,11 +7,15 @@ import FirebaseCrashlytics
 import Kingfisher
 import SwiftData
 import SwiftUI
+#if !os(tvOS)
 import UserNotifications
+#endif
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+        #if !os(tvOS)
         UNUserNotificationCenter.current().delegate = self
+        #endif
 
         FirebaseApp.configure()
         Crashlytics.crashlytics().setUserID(Const.deviceUUID)
@@ -27,6 +31,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_: UIApplication) {
+        #if !os(tvOS)
         if !Downloader.shared.downloads.isEmpty {
             let notificationCenter = UNUserNotificationCenter.current()
 
@@ -38,9 +43,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                 notificationCenter.removeDeliveredNotifications(withIdentifiers: notifications.filter { $0.request.content.categoryIdentifier == "cancel" }.map(\.request.identifier))
             }
         }
+        #endif
     }
 }
 
+#if !os(tvOS)
 extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_: UNUserNotificationCenter, willPresent _: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.list, .banner, .sound, .badge])
@@ -73,6 +80,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         completionHandler()
     }
 }
+#endif
 
 @main
 struct HDrezkaApp: App {
@@ -110,10 +118,13 @@ struct HDrezkaApp: App {
                 .preferredColorScheme(theme.scheme)
         }
         .modelContainer(modelContainer)
+        #if !os(tvOS)
         .commands(content: customCommands)
         .commands(content: removed)
+        #endif
     }
 
+    #if !os(tvOS)
     @CommandsBuilder
     func customCommands() -> some Commands {
         CommandGroup(replacing: .help) {
@@ -143,4 +154,5 @@ struct HDrezkaApp: App {
         CommandGroup(replacing: .systemServices) {}
         CommandGroup(replacing: .toolbar) {}
     }
+    #endif
 }
