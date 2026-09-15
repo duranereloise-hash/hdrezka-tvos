@@ -29,8 +29,10 @@ jobs:
             SUPPORTED_PLATFORMS=appletvos \
             TARGETED_DEVICE_FAMILY=3 \
             SDKROOT=appletvos \
-            INFOPLIST_FILE=HDrezka/tvOS/Info.plist \
             PRODUCT_BUNDLE_IDENTIFIER=io.silentsea.hdrezka \
+            GENERATE_INFOPLIST_FILE=NO \
+            INFOPLIST_FILE=HDrezka/tvOS/Info.plist \
+            PRODUCT_NAME=HDrezka \
             clean archive -archivePath build/HDrezkaTV
 
       - name: Create IPA
