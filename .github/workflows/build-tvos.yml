@@ -28,20 +28,18 @@ jobs:
           xcodebuild -project HDrezka.xcodeproj \
             -scheme HDrezka \
             -configuration Release \
-            -sdk appletvos \
+            -destination 'generic/platform=tvOS' \
             -arch arm64 \
             CODE_SIGNING_ALLOWED=NO \
-            SUPPORTED_PLATFORMS=appletvos \
-            TARGETED_DEVICE_FAMILY=3 \
-            SDKROOT=appletvos \
-            PRODUCT_NAME=HDrezka \
             GENERATE_INFOPLIST_FILE=YES \
-            clean archive -archivePath build/HDrezkaTV
+            PRODUCT_BUNDLE_IDENTIFIER=io.silentsea.hdrezkatv \
+            PRODUCT_NAME=HDrezkaTV \
+            archive -archivePath build/HDrezkaTV
 
       - name: Create IPA
         run: |
           mkdir Payload
-          cp -R build/HDrezkaTV.xcarchive/Products/Applications/HDrezka.app Payload/
+          cp -R build/HDrezkaTV.xcarchive/Products/Applications/HDrezkaTV.app Payload/
           zip -r HDrezkaTV.ipa Payload -x "._*" -x ".DS_Store" -x "__MACOSX"
           rm -rf Payload
 
