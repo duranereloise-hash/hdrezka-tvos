@@ -24,6 +24,32 @@ jobs:
           cp -r HDrezka/tvOS HDrezka/iOS
           rm -rf HDrezka/tvOS
           find . -name "Info.plist" -not -path "./.git/*" -delete
+# Disable SwiftFormat run-script phase (breaks tvOS build)
+          python3 - <<'PYEOF'
+import re
+p = 'HDrezka.xcodeproj/project.pbxproj'
+s = open(p, encoding='utf-8').read()
+
+# Nuke the SwiftFormat shell script phase block
+pat = re.compile(r'\t\t[A-F0-9]{24} /\* ShellScript \*/ = \{\n.*?shellScript = "SWIFTFROMAT.*?\n\t\t\};\n', re.S)
+s, n = pat.subn('', s)
+print('removed swiftformat script phases:', n)
+
+# Remove its entry from target buildPhases list
+pat2 = re.compile(r'\t\t\t\t[A-F0-9]{24} /\* ShellScript \*/,\n', re.M)
+s, n2 = pat2.subn('', s)
+print('removed buildPhase refs:', n2)
+
+# Remove SwiftFormat package + product refs  
+idsToRemove = ['DE3DCCE42DFB92050062CF81', 'DE3DCCE52DFB92050062CF81', 'DE3DCCE62DFB92050062CF81']
+for iid in idsToRemove:
+    pat3 = re.compile(r'^\s*' + iid + r' .*?/\* .*?\*/\n', re.M)
+    s, n3 = pat3.subn('', s)
+    print(f'removed ref {iid}: {n3}')
+
+open(p, 'w', encoding='utf-8', newline='\n').write(s)
+print('braces:', s.count('{'), s.count('}'))
+PYEOF
 
       - name: Build for tvOS
         run: |
