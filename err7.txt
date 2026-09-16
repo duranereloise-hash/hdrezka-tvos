@@ -1,0 +1,1 @@
+Build tvOS IPA	Build for tvOS	2026-09-16T14:40:26.9039420Z xcodebuild: error: Unable to find a destination matching the provided destination specifier:
