@@ -18,32 +18,35 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Swap tvOS sources
+      - name: Prepare tvOS sources
         run: |
           rm -rf HDrezka/iOS
           cp -r HDrezka/tvOS HDrezka/iOS
           rm -rf HDrezka/tvOS
+          # Nuke all Info.plist so Xcode has nothing to conflict with
+          find . -name "Info.plist" -not -path "./.git/*" -delete
 
       - name: Build for tvOS
         run: |
-          xcodebuild clean build \
-            -project HDrezka.xcodeproj \
+          xcodebuild -project HDrezka.xcodeproj \
             -scheme HDrezka \
             -configuration Release \
             -destination 'generic/platform=tvOS' \
+            -configuration Release \
             CODE_SIGNING_ALLOWED=NO \
             GENERATE_INFOPLIST_FILE=YES \
             INFOPLIST_FILE= \
-            INFOPLIST_KEY_UIDeviceFamily=3 \
-            INFOPLIST_KEY_LSRequiresIPhoneOS=NO \
             INFOPLIST_KEY_CFBundleDisplayName=HDrezka \
+            INFOPLIST_KEY_UIDeviceFamily=3 \
             INFOPLIST_KEY_UISupportedInterfaceOrientations="UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight" \
-            INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents=NO
+            INFOPLIST_KEY_LSRequiresIPhoneOS=NO \
+            INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents=NO \
+            clean build
 
-      - name: Locate and package IPA
+      - name: Create IPA
         run: |
-          APP=$(find ~/Library/Developer/Xcode/DerivedData -name "HDrezka.app" -ipath "*/Release-appletvos/*" | head -1)
-          echo "App: $APP"
+          APP=$(find ~/Library/Developer/Xcode/DerivedData -name "HDrezka.app" -path "*/Release-appletvos/*" | head -1)
+          echo "$APP"
           mkdir -p Payload
           cp -R "$APP" Payload/
           cd Payload && zip -r ../HDrezkaTV.ipa . -x "._*" -x ".DS_Store" && cd ..
