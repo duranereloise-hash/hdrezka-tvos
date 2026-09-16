@@ -24,12 +24,6 @@ jobs:
           cp -r HDrezka/tvOS HDrezka/iOS
           rm -rf HDrezka/tvOS
           find . -name "Info.plist" -not -path "./.git/*" -delete
-          # Remove YouTubePlayerKit imports (no tvOS support - WebKit unavailable on tvOS)
-          find HDrezka -name "*.swift" -exec sed -i '' '/import YouTubePlayerKit/d' {} +
-          # Remove YouTubePlayerKit package + product refs from pbxproj
-          sed -i '' '/XCRemoteSwiftPackageReference "YouTubePlayerKit"/,/};/d' HDrezka.xcodeproj/project.pbxproj
-          sed -i '' '/XCSwiftPackageProductDependency "YouTubePlayerKit"/,/};/d' HDrezka.xcodeproj/project.pbxproj
-          sed -i '' '/"YouTubePlayerKit"/d' HDrezka.xcodeproj/project.pbxproj
 
       - name: Build for tvOS
         run: |

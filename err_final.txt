@@ -1,0 +1,1 @@
+Build tvOS IPA	Build for tvOS	2026-09-16T14:28:48.0957680Z xcodebuild: error: Unable to read project 'HDrezka.xcodeproj'.
