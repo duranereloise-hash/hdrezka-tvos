@@ -1,0 +1,2 @@
+Build tvOS IPA	Build for tvOS	2026-09-16T14:21:20.9743290Z /Users/runner/Library/Developer/Xcode/DerivedData/HDrezka-ejpgdjremzhqyzaknchtnoyztktq/SourcePackages/checkouts/YouTubePlayerKit/Sources/API/YouTubePlayer+PlaybackAPI.swift:3:8: error: Unable to find module dependency: 'WebKit'
+Build tvOS IPA	Build for tvOS	2026-09-16T14:21:30.1444540Z /Users/runner/Library/Developer/Xcode/DerivedData/HDrezka-ejpgdjremzhqyzaknchtnoyztktq/SourcePackages/checkouts/YouTubePlayerKit/Sources/API/YouTubePlayer+PlaybackAPI.swift:3:8: error: Unable to find module dependency: 'WebKit'

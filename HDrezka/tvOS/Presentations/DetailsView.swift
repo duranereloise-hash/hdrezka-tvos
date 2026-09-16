@@ -2,7 +2,6 @@ import Defaults
 import FirebaseAnalytics
 import Kingfisher
 import SwiftUI
-import YouTubePlayerKit
 
 struct DetailsView: View {
     private let title: String?
@@ -929,57 +928,6 @@ struct DetailsView: View {
                         .textSelection(.enabled)
                         .matchedGeometryEffect(id: "description", in: orientation)
 
-                    if let trailerId {
-                        Divider()
-
-                        #if DEBUG
-                            let isLoggingEnabled = true
-                        #else
-                            let isLoggingEnabled = false
-                        #endif
-
-                        let trailer = YouTubePlayer(
-                            source: .video(id: trailerId),
-                            parameters: .init(
-                                autoPlay: false,
-                                loopEnabled: true,
-                                showControls: true,
-                                showFullscreenButton: true,
-                            ),
-                            configuration: .init(
-                                openURLAction: .init { url, _ in
-                                    openURL(url)
-                                },
-                            ),
-                            isLoggingEnabled: isLoggingEnabled,
-                        )
-
-                        YouTubePlayerView(trailer, transaction: .init(animation: .easeInOut)) { state in
-                            if state.isIdle {
-                                ProgressView()
-                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            } else if let error = state.error {
-                                switch error {
-                                case .embeddedVideoPlayingNotAllowed:
-                                    EmptyView()
-                                default:
-                                    Text("key.youtube.error")
-                                }
-                            }
-                        }
-                        .aspectRatio(16 / 9, contentMode: .fit)
-                        .frame(maxWidth: .infinity)
-                        .contentShape(.rect(cornerRadius: 6))
-                        .clipShape(.rect(cornerRadius: 6))
-                        .onScrollVisibilityChange { isVisible in
-                            if !isVisible, trailer.isPlaying {
-                                Task {
-                                    try? await trailer.pause()
-                                }
-                            }
-                        }
-                        .matchedGeometryEffect(id: "trailer", in: orientation)
-                    }
                 }
                 .padding(.horizontal, 36)
             } landscape: { orientation in
@@ -989,55 +937,6 @@ struct DetailsView: View {
                         .textSelection(.enabled)
                         .matchedGeometryEffect(id: "description", in: orientation)
 
-                    if let trailerId {
-                        #if DEBUG
-                            let isLoggingEnabled = true
-                        #else
-                            let isLoggingEnabled = false
-                        #endif
-
-                        let trailer = YouTubePlayer(
-                            source: .video(id: trailerId),
-                            parameters: .init(
-                                autoPlay: false,
-                                loopEnabled: true,
-                                showControls: true,
-                                showFullscreenButton: true,
-                            ),
-                            configuration: .init(
-                                openURLAction: .init { url, _ in
-                                    openURL(url)
-                                },
-                            ),
-                            isLoggingEnabled: isLoggingEnabled,
-                        )
-
-                        YouTubePlayerView(trailer, transaction: .init(animation: .easeInOut)) { state in
-                            if state.isIdle {
-                                ProgressView()
-                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            } else if let error = state.error {
-                                switch error {
-                                case .embeddedVideoPlayingNotAllowed:
-                                    EmptyView()
-                                default:
-                                    Text("key.youtube.error")
-                                }
-                            }
-                        }
-                        .aspectRatio(16 / 9, contentMode: .fit)
-                        .frame(maxWidth: .infinity)
-                        .contentShape(.rect(cornerRadius: 6))
-                        .clipShape(.rect(cornerRadius: 6))
-                        .onScrollVisibilityChange { isVisible in
-                            if !isVisible, trailer.isPlaying {
-                                Task {
-                                    try? await trailer.pause()
-                                }
-                            }
-                        }
-                        .matchedGeometryEffect(id: "trailer", in: orientation)
-                    }
                 }
                 .padding(.horizontal, 36)
             }
