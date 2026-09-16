@@ -32,7 +32,6 @@ jobs:
             -scheme HDrezka \
             -configuration Release \
             -destination 'generic/platform=tvOS' \
-            -configuration Release \
             CODE_SIGNING_ALLOWED=NO \
             GENERATE_INFOPLIST_FILE=YES \
             INFOPLIST_FILE= \
