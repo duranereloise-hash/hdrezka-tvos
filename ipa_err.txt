@@ -1,0 +1,32 @@
+Build tvOS IPA	Build for tvOS	2026-09-16T00:07:33.1000360Z ^[[36;1mxcodebuild clean archive \^[[0m
+Build tvOS IPA	Build for tvOS	2026-09-16T00:07:33.1002600Z ^[[36;1m  -archivePath build/HDrezka 2>&1 | tee build.log^[[0m
+Build tvOS IPA	Build for tvOS	2026-09-16T00:07:37.3929530Z     /Applications/Xcode_26.2.app/Contents/Developer/usr/bin/xcodebuild clean archive -project HDrezka.xcodeproj -scheme HDrezka -configuration Release -destination generic/platform=tvOS CODE_SIGNING_ALLOWED=NO GENERATE_INFOPLIST_FILE=YES INFOPLIST_FILE= -archivePath build/HDrezka
+Build tvOS IPA	Build for tvOS	2026-09-16T00:10:26.8349910Z ExecuteExternalTool /Applications/Xcode_26.2.app/Contents/Developer/usr/bin/xcstringstool compile --dry-run --output-directory /Users/runner/Library/Developer/Xcode/DerivedData/HDrezka-ejpgdjremzhqyzaknchtnoyztktq/Build/Intermediates.noindex/ArchiveIntermediates/HDrezka/IntermediateBuildFilesPath/HDrezka.build/Release-appletvos/HDrezka.build /Users/runner/work/hdrezka-tvos/hdrezka-tvos/HDrezka/Shared/Resources/Localizable.xcstrings
+Build tvOS IPA	Build for tvOS	2026-09-16T00:10:26.8551860Z ExecuteExternalTool /Applications/Xcode_26.2.app/Contents/Developer/usr/bin/xcstringstool compile --dry-run --output-directory /Users/runner/Library/Developer/Xcode/DerivedData/HDrezka-ejpgdjremzhqyzaknchtnoyztktq/Build/Intermediates.noindex/ArchiveIntermediates/HDrezka/IntermediateBuildFilesPath/HDrezka.build/Release-appletvos/HDrezka.build /Users/runner/work/hdrezka-tvos/hdrezka-tvos/HDrezka/tvOS/Resources/InfoPlist.xcstrings
+Build tvOS IPA	Build for tvOS	2026-09-16T00:10:27.4073800Z Build description path: /Users/runner/Library/Developer/Xcode/DerivedData/HDrezka-ejpgdjremzhqyzaknchtnoyztktq/Build/Intermediates.noindex/ArchiveIntermediates/HDrezka/IntermediateBuildFilesPath/XCBuildData/5fc7be3a75c7c1c0b8a305c2de27c587.xcbuilddata
+Build tvOS IPA	Build for tvOS	2026-09-16T00:10:27.6424200Z error: Multiple commands produce '/Users/runner/Library/Developer/Xcode/DerivedData/HDrezka-ejpgdjremzhqyzaknchtnoyztktq/Build/Intermediates.noindex/ArchiveIntermediates/HDrezka/InstallationBuildProductsLocation/Applications/HDrezka.app/Info.plist'
+Build tvOS IPA	Build for tvOS	2026-09-16T00:10:27.6524780Z     note: Target 'HDrezka' (project 'HDrezka') has copy command from '/Users/runner/work/hdrezka-tvos/hdrezka-tvos/HDrezka/tvOS/Info.plist' to '/Users/runner/Library/Developer/Xcode/DerivedData/HDrezka-ejpgdjremzhqyzaknchtnoyztktq/Build/Intermediates.noindex/ArchiveIntermediates/HDrezka/InstallationBuildProductsLocation/Applications/HDrezka.app/Info.plist'
+Build tvOS IPA	Build for tvOS	2026-09-16T00:10:27.6626910Z     note: Target 'HDrezka' (project 'HDrezka') has copy command from '/Users/runner/work/hdrezka-tvos/hdrezka-tvos/HDrezka/tvOS/Resources/Info.plist' to '/Users/runner/Library/Developer/Xcode/DerivedData/HDrezka-ejpgdjremzhqyzaknchtnoyztktq/Build/Intermediates.noindex/ArchiveIntermediates/HDrezka/InstallationBuildProductsLocation/Applications/HDrezka.app/Info.plist'
+Build tvOS IPA	Build for tvOS	2026-09-16T00:10:27.6729810Z     note: Target 'HDrezka' (project 'HDrezka') has process command with output '/Users/runner/Library/Developer/Xcode/DerivedData/HDrezka-ejpgdjremzhqyzaknchtnoyztktq/Build/Intermediates.noindex/ArchiveIntermediates/HDrezka/InstallationBuildProductsLocation/Applications/HDrezka.app/Info.plist'
+Build tvOS IPA	Build for tvOS	2026-09-16T00:10:27.9488420Z CreateBuildDirectory /Users/runner/Library/Developer/Xcode/DerivedData/HDrezka-ejpgdjremzhqyzaknchtnoyztktq/Build/Intermediates.noindex/ArchiveIntermediates/HDrezka/InstallationBuildProductsLocation
+Build tvOS IPA	Build for tvOS	2026-09-16T00:10:27.9693730Z     builtin-create-build-directory /Users/runner/Library/Developer/Xcode/DerivedData/HDrezka-ejpgdjremzhqyzaknchtnoyztktq/Build/Intermediates.noindex/ArchiveIntermediates/HDrezka/InstallationBuildProductsLocation
+Build tvOS IPA	Build for tvOS	2026-09-16T00:10:28.1166360Z ** ARCHIVE FAILED **
+Build tvOS IPA	Show build errors	﻿2026-09-16T00:10:28.2339970Z ##[group]Run grep -E "error:|BUILD FAILED|ARCHIVE FAILED" build.log || echo "No errors found"
+Build tvOS IPA	Show build errors	2026-09-16T00:10:28.2341160Z ^[[36;1mgrep -E "error:|BUILD FAILED|ARCHIVE FAILED" build.log || echo "No errors found"^[[0m
+Build tvOS IPA	Show build errors	2026-09-16T00:10:28.4297650Z shell: /bin/bash -e {0}
+Build tvOS IPA	Show build errors	2026-09-16T00:10:28.4298360Z env:
+Build tvOS IPA	Show build errors	2026-09-16T00:10:28.4299010Z   MD_APPLE_SDK_ROOT: /Applications/Xcode_26.2.app
+Build tvOS IPA	Show build errors	2026-09-16T00:10:28.4299930Z ##[endgroup]
+Build tvOS IPA	Show build errors	2026-09-16T00:10:28.6091790Z error: Multiple commands produce '/Users/runner/Library/Developer/Xcode/DerivedData/HDrezka-ejpgdjremzhqyzaknchtnoyztktq/Build/Intermediates.noindex/ArchiveIntermediates/HDrezka/InstallationBuildProductsLocation/Applications/HDrezka.app/Info.plist'
+Build tvOS IPA	Show build errors	2026-09-16T00:10:28.6196020Z ** ARCHIVE FAILED **
+Build tvOS IPA	Create IPA	﻿2026-09-16T00:10:28.6355540Z ##[group]Run mkdir Payload
+Build tvOS IPA	Create IPA	2026-09-16T00:10:28.6356900Z ^[[36;1mmkdir Payload^[[0m
+Build tvOS IPA	Create IPA	2026-09-16T00:10:28.6358300Z ^[[36;1mcp -R build/HDrezka.xcarchive/Products/Applications/HDrezka.app Payload/^[[0m
+Build tvOS IPA	Create IPA	2026-09-16T00:10:28.6359870Z ^[[36;1mzip -r HDrezkaTV.ipa Payload -x "._*" -x ".DS_Store" -x "__MACOSX"^[[0m
+Build tvOS IPA	Create IPA	2026-09-16T00:10:28.6360930Z ^[[36;1mrm -rf Payload^[[0m
+Build tvOS IPA	Create IPA	2026-09-16T00:10:28.6429880Z shell: /bin/bash -e {0}
+Build tvOS IPA	Create IPA	2026-09-16T00:10:28.6431270Z env:
+Build tvOS IPA	Create IPA	2026-09-16T00:10:28.6431680Z   MD_APPLE_SDK_ROOT: /Applications/Xcode_26.2.app
+Build tvOS IPA	Create IPA	2026-09-16T00:10:28.6432140Z ##[endgroup]
+Build tvOS IPA	Create IPA	2026-09-16T00:10:28.7442210Z cp: build/HDrezka.xcarchive/Products/Applications/HDrezka.app: No such file or directory
+Build tvOS IPA	Create IPA	2026-09-16T00:10:28.7581190Z ##[error]Process completed with exit code 1.

@@ -291,7 +291,7 @@
 			buildConfigurationList = 04B3CA6F2BA06C9C0039F76E /* Build configuration list for PBXProject "HDrezka" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
-			knownRegions = (
+knownRegions = (
 				en,
 				uk,
 				ru,
@@ -561,7 +561,6 @@ buildSettings = {
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "";
 				"INFOPLIST_FILE[sdk=iphone*]" = HDrezka/iOS/Resources/Info.plist;
-				"INFOPLIST_FILE[sdk=appletvos*]" = HDrezka/iOS/Resources/Info.plist;
 				"INFOPLIST_FILE[sdk=macosx*]" = HDrezka/macOS/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = HDrezka;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";
@@ -633,7 +632,6 @@ buildSettings = {
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "";
 				"INFOPLIST_FILE[sdk=iphone*]" = HDrezka/iOS/Resources/Info.plist;
-				"INFOPLIST_FILE[sdk=appletvos*]" = HDrezka/iOS/Resources/Info.plist;
 				"INFOPLIST_FILE[sdk=macosx*]" = HDrezka/macOS/Resources/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = HDrezka;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.video";

@@ -1,0 +1,1 @@
+Build tvOS IPA	Build for tvOS	2026-09-16T00:04:22.3569530Z error: Multiple commands produce '/Users/runner/Library/Developer/Xcode/DerivedData/HDrezka-ejpgdjremzhqyzaknchtnoyztktq/Build/Intermediates.noindex/ArchiveIntermediates/HDrezka/InstallationBuildProductsLocation/Applications/HDrezka.app/Info.plist'

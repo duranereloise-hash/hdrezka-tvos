@@ -22,8 +22,9 @@ jobs:
         run: |
           rm -rf HDrezka/iOS
           cp -r HDrezka/tvOS HDrezka/iOS
-          find HDrezka/iOS -name "Info.plist" -delete
-          find HDrezka/iOS -name "InfoPlist.xcstrings" -delete
+          rm -f HDrezka/iOS/Info.plist
+          rm -rf HDrezka/iOS/Resources/Info.plist
+          rm -rf HDrezka/iOS/Resources/InfoPlist.xcstrings
 
       - name: Build for tvOS
         run: |
@@ -34,15 +35,17 @@ jobs:
             -destination 'generic/platform=tvOS' \
             CODE_SIGNING_ALLOWED=NO \
             GENERATE_INFOPLIST_FILE=YES \
-            INFOPLIST_FILE=
+            INFOPLIST_FILE= \
+            INFOPLIST_KEY_UIDeviceFamily=3 \
+            INFOPLIST_KEY_LSRequiresIPhoneOS=NO \
+            INFOPLIST_KEY_CFBundleDisplayName=HDrezka \
+            INFOPLIST_KEY_UISupportedInterfaceOrientations="UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight" \
+            INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents=NO
 
       - name: Locate and package IPA
         run: |
           APP=$(find ~/Library/Developer/Xcode/DerivedData -name "HDrezka.app" -ipath "*/Release-appletvos/*" | head -1)
           echo "App: $APP"
-          if [ -z "$APP" ]; then
-            ls -la ~/Library/Developer/Xcode/DerivedData/*/Build/Products/Release-appletvos/ || true
-          fi
           mkdir -p Payload
           cp -R "$APP" Payload/
           cd Payload && zip -r ../HDrezkaTV.ipa . -x "._*" -x ".DS_Store" && cd ..
