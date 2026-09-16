@@ -18,41 +18,34 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Swap tvOS sources and strip Info.plist references
+      - name: Swap tvOS sources
         run: |
           rm -rf HDrezka/iOS
           cp -r HDrezka/tvOS HDrezka/iOS
-          # Remove ALL Info.plist files to prevent bundle resource conflict
           find HDrezka/iOS -name "Info.plist" -delete
           find HDrezka/iOS -name "InfoPlist.xcstrings" -delete
-          find HDrezka -name "Info.plist" -not -path "*/Shared/*" -delete
-          # Remove Firebase Crashlytics run script (tvOS incompatible)
-          sed -i '' '/Crashlytics\|GoogleService-Info/d' HDrezka.xcodeproj/project.pbxproj
 
       - name: Build for tvOS
         run: |
-          # Remove Info.plist that gets auto-added to Copy Bundle Resources
-          rm -f HDrezka/iOS/Resources/Info.plist
-          xcodebuild clean archive \
+          xcodebuild clean build \
             -project HDrezka.xcodeproj \
             -scheme HDrezka \
             -configuration Release \
             -destination 'generic/platform=tvOS' \
             CODE_SIGNING_ALLOWED=NO \
             GENERATE_INFOPLIST_FILE=YES \
-            INFOPLIST_FILE= \
-            -archivePath build/HDrezka 2>&1 | tee build.log
-      
-      - name: Show build errors
-        run: |
-          grep -E "error:|BUILD FAILED|ARCHIVE FAILED" build.log || echo "No errors found"
+            INFOPLIST_FILE=
 
-      - name: Create IPA
+      - name: Locate and package IPA
         run: |
-          mkdir Payload
-          cp -R build/HDrezka.xcarchive/Products/Applications/HDrezka.app Payload/
-          zip -r HDrezkaTV.ipa Payload -x "._*" -x ".DS_Store" -x "__MACOSX"
-          rm -rf Payload
+          APP=$(find ~/Library/Developer/Xcode/DerivedData -name "HDrezka.app" -ipath "*/Release-appletvos/*" | head -1)
+          echo "App: $APP"
+          if [ -z "$APP" ]; then
+            ls -la ~/Library/Developer/Xcode/DerivedData/*/Build/Products/Release-appletvos/ || true
+          fi
+          mkdir -p Payload
+          cp -R "$APP" Payload/
+          cd Payload && zip -r ../HDrezkaTV.ipa . -x "._*" -x ".DS_Store" && cd ..
 
       - name: Upload IPA
         uses: actions/upload-artifact@v7
