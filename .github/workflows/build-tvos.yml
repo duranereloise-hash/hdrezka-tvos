@@ -18,27 +18,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Swap tvOS sources and patch project
+      - name: Swap tvOS sources
         run: |
           rm -rf HDrezka/iOS
           cp -r HDrezka/tvOS HDrezka/iOS
           rm -rf HDrezka/iOS/Resources/Info.plist
-          # Patch pbxproj: add appletvos to SUPPORTED_PLATFORMS
-          sed -i '' 's/SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";/SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx appletvos appletvsimulator";/' HDrezka.xcodeproj/project.pbxproj
-          sed -i '' 's/IPHONEOS_DEPLOYMENT_TARGET = 18.0;/IPHONEOS_DEPLOYMENT_TARGET = 18.0; TVOS_DEPLOYMENT_TARGET = 17.0;/' HDrezka.xcodeproj/project.pbxproj
-          sed -i '' 's/TARGETED_DEVICE_FAMILY = 2;/TARGETED_DEVICE_FAMILY = "1,2,3";/' HDrezka.xcodeproj/project.pbxproj
+          rm -rf HDrezka/tvOS
 
       - name: Build for tvOS
         run: |
-          xcodebuild clean archive \
+          xcodebuild archive \
             -project HDrezka.xcodeproj \
             -scheme HDrezka \
             -configuration Release \
-            -sdk appletvos \
-            -arch arm64 \
+            -destination 'generic/platform=tvOS' \
             CODE_SIGNING_ALLOWED=NO \
-            PRODUCT_BUNDLE_IDENTIFIER=io.silentsea.hdrezka \
-            archive -archivePath build/HDrezka
+            -archivePath build/HDrezka
 
       - name: Create IPA
         run: |
