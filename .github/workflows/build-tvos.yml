@@ -22,9 +22,7 @@ jobs:
         run: |
           rm -rf HDrezka/iOS
           cp -r HDrezka/tvOS HDrezka/iOS
-          rm -f HDrezka/iOS/Info.plist
-          rm -rf HDrezka/iOS/Resources/Info.plist
-          rm -rf HDrezka/iOS/Resources/InfoPlist.xcstrings
+          rm -rf HDrezka/tvOS
 
       - name: Build for tvOS
         run: |

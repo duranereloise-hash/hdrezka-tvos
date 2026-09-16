@@ -34,8 +34,6 @@
 		DE8580E32E9D2B3800EFD65D /* Exceptions for "HDrezka" folder in "HDrezka" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				iOS/Resources/Info.plist,
-				macOS/Resources/Info.plist,
 			);
 			platformFiltersByRelativePath = {
 				iOS/Core/AppState.swift = (ios, );
