@@ -1168,11 +1168,7 @@ struct PlayerView: View {
     }
 
     private func updateNextTimer() {
-#if !os(tvOS)
-        if (duration - currentTime) / 60 > 0, (duration - currentTime) / 60 <= 1, let seasons, let season, let episode, seasons.element(after: season) != nil || season.episodes.element(after: episode) != nil, timer != -1, !isPictureInPictureActive {
-#else
         if (duration - currentTime) / 60 > 0, (duration - currentTime) / 60 <= 1, let seasons, let season, let episode, seasons.element(after: season) != nil || season.episodes.element(after: episode) != nil, timer != -1 {
-#endif
             withAnimation(.easeInOut) {
                 nextTimer = min((duration - currentTime) / 60, 1.0)
             }
