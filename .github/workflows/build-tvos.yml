@@ -22,11 +22,12 @@ jobs:
         run: |
           rm -rf HDrezka/iOS
           cp -r HDrezka/tvOS HDrezka/iOS
-          # Remove all Info.plist from source tree so GENERATE_INFOPLIST_FILE works cleanly
+          # Remove ALL Info.plist files to prevent bundle resource conflict
           find HDrezka/iOS -name "Info.plist" -delete
           find HDrezka/iOS -name "InfoPlist.xcstrings" -delete
+          find HDrezka -name "Info.plist" -not -path "*/Shared/*" -delete
           # Remove Firebase Crashlytics run script (tvOS incompatible)
-          sed -i '' '/Firebase\|GoogleService-Info\|Crashlytics/d' HDrezka.xcodeproj/project.pbxproj
+          sed -i '' '/Crashlytics\|GoogleService-Info/d' HDrezka.xcodeproj/project.pbxproj
 
       - name: Build for tvOS
         run: |
