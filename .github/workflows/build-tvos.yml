@@ -18,22 +18,33 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Swap tvOS sources
+      - name: Swap tvOS sources and strip Info.plist references
         run: |
           rm -rf HDrezka/iOS
           cp -r HDrezka/tvOS HDrezka/iOS
-          rm -rf HDrezka/iOS/Resources/Info.plist
-          rm -rf HDrezka/tvOS
+          # Remove all Info.plist from source tree so GENERATE_INFOPLIST_FILE works cleanly
+          find HDrezka/iOS -name "Info.plist" -delete
+          find HDrezka/iOS -name "InfoPlist.xcstrings" -delete
+          # Remove Firebase Crashlytics run script (tvOS incompatible)
+          sed -i '' '/Firebase\|GoogleService-Info\|Crashlytics/d' HDrezka.xcodeproj/project.pbxproj
 
       - name: Build for tvOS
         run: |
-          xcodebuild archive \
+          # Remove Info.plist that gets auto-added to Copy Bundle Resources
+          rm -f HDrezka/iOS/Resources/Info.plist
+          xcodebuild clean archive \
             -project HDrezka.xcodeproj \
             -scheme HDrezka \
             -configuration Release \
             -destination 'generic/platform=tvOS' \
             CODE_SIGNING_ALLOWED=NO \
-            -archivePath build/HDrezka
+            GENERATE_INFOPLIST_FILE=YES \
+            INFOPLIST_FILE= \
+            -archivePath build/HDrezka 2>&1 | tee build.log
+      
+      - name: Show build errors
+        run: |
+          grep -E "error:|BUILD FAILED|ARCHIVE FAILED" build.log || echo "No errors found"
 
       - name: Create IPA
         run: |
